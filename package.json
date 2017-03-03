@@ -1,0 +1,29 @@
+{
+  "name": "jrodon",
+  "version": "1.0.0",
+  "description": "Site institucional do Consultório de Odontologia JR.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sidroniolima/jrodon.git"
+  },
+  "keywords": [
+    "JR",
+    "Odontologia",
+    "Dentista",
+    "Consultorio",
+    "odontologico",
+    "Friburgo",
+    "Jazao",
+    "Ribeiro"
+  ],
+  "author": "Sidronio Lima (tetraTI)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sidroniolima/jrodon/issues"
+  },
+  "homepage": "https://github.com/sidroniolima/jrodon#readme"
+}
