@@ -746,3 +746,11 @@ ul.check-list li
    list-style-image: url('images/check-icon.png');
    margin-left: 40px;
 }
+
+.texto-alerta {
+  display: none;
+}
+
+#spinner{
+ display: none;
+}

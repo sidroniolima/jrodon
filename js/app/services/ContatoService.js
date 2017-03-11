@@ -23,4 +23,24 @@ class ContatoService
 			}
 			});
 	}
+
+	enviaJQuery(contato, callbackFunction)
+	{
+		$('#spinner').show();console.log(contato);
+
+		$.post("http://jrodontologia.com/jrodon-rest/contato/add/", contato, function(resposta) {
+			
+		})
+		.done(function(resposta)
+		{	
+			callbackFunction(resposta);	
+		})
+		.fail(function(resposta) 
+		{
+			callbackFunction(null);
+		})
+		.always(function(resposta) {
+			$('#spinner').hide();			
+		})
+	}
 }

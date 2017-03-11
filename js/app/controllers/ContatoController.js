@@ -6,8 +6,6 @@ class ContatoController
 		let _self = this;
 		this._contato = {nome: '', assunto: '', email: '', mensagem: ''};
 
-		let $ = document.querySelector.bind(document);
-
 		this._inputNome = $('#nome');
 		this._inputAssunto = $('#assunto');
 		this._inputEmail = $('#email');
@@ -18,34 +16,36 @@ class ContatoController
 
 		this._service = new ContatoService();
 
-		$('.form').onsubmit = this.enviaContato.bind(this);		
+		$("form" ).submit(function(event) {
+			event.preventDefault();
+			_self.enviaContato();
+		});	
 	}
 
-	enviaContato(event)
+	enviaContato()
 	{
-		event.preventDefault();
-
+		
 		console.log('Enviando...');
 
-		this._contato.nome = this._inputNome.value;
-		this._contato.assunto = this._inputAssunto.value;
-		this._contato.email = this._inputEmail.value;
-		this._contato.mensagem = this._inputMensagem.value;
+		this._contato.nome = $('#nome').val();
+		this._contato.assunto = $('#assunto').val();
+		this._contato.email = $('#email').val();
+		this._contato.mensagem = $('#message2').val();
 
-		this._service.envia(this._contato, this._exibeMensagem.bind(this));
+		console.log(this._contato);
+
+		this._service.enviaJQuery(this._contato, this._exibeMensagem.bind(this));
+		
 	}
 
 	_exibeMensagem(resposta)
 	{
-		console.log(resposta);
-
 		if (!resposta)
 		{
-			this._alertDanger.style.display = 'block';
+			$('.texto-alerta').text('Não foi possível enviar o contato.').toggleClass('alert-danger').toggle();
 
 		} else{
-			this._alertSuccess.style.display = 'block';
+			$('.texto-alerta').text('Contato enviado com sucesso. Em breve o respoderemos.').toggleClass('alert-success').toggle();
 		}
-		
 	}
 }

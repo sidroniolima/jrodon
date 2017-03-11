@@ -116,9 +116,10 @@
 
 <div id="contact-container" class="margin-t clearfix">
 
-<div class="alert alert-success" role="alert" style='display: none;'>Sua mensagem foi enviada com sucesso!</div>
-
-<div class="alert alert-danger" role="alert" style='display: none;'>Não foi possível enviar sua mensagem. Reveja os campos e tente novamente.</div>
+<div align="center">
+  <div class="alert texto-alerta" align="center"></div>
+  <img src="images/spinner.gif" alt="Spinner" id="spinner">
+</div>
 
 <form method="post" id="form" class="form">
 
@@ -133,6 +134,7 @@
 	<input type="submit" value="Enviar mensagem" id="submit" tabindex="5"/>
     
 </form>
+
 </div>
 
 <div id="output"></div>
