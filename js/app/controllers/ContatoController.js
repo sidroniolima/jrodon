@@ -44,8 +44,18 @@ class ContatoController
 		{
 			$('.texto-alerta').text('Não foi possível enviar o contato.').toggleClass('alert-danger').toggle();
 
+			this._limpaForm();
+
 		} else{
 			$('.texto-alerta').text('Contato enviado com sucesso. Em breve o respoderemos.').toggleClass('alert-success').toggle();
 		}
+	}
+
+	_limpaForm()
+	{
+		$('#nome').val('');
+		$('#assunto').val('');
+		$('#email').val('');
+		$('#message2').val('');
 	}
 }

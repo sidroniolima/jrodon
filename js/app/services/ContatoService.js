@@ -26,10 +26,15 @@ class ContatoService
 
 	enviaJQuery(contato, callbackFunction)
 	{
-		$('#spinner').show();console.log(contato);
+		$('#spinner').show();
+		console.log(contato);
 
-		$.post("http://jrodontologia.com/jrodon-rest/contato/add/", contato, function(resposta) {
-			
+		$.ajax({
+			url:"http://jrodontologia.com/jrodon-rest/contato/add/",
+			contentType: 'application/json',
+			dataType: 'json',
+			type: 'post',
+			data: JSON.stringify(contato)
 		})
 		.done(function(resposta)
 		{	
@@ -37,6 +42,7 @@ class ContatoService
 		})
 		.fail(function(resposta) 
 		{
+			console.log(resposta);
 			callbackFunction(null);
 		})
 		.always(function(resposta) {
