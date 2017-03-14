@@ -6,7 +6,7 @@ class ContatoService
 		console.log(JSON.stringify(contato));
 
 		$.ajax({				 
-			url:"http://jrodontologia.com/jrodon-rest/contato/add/",
+			url:"http://jrodontologia.com/jrodon-rest/contato/mensagem/add/",
 			contentType: 'application/json',
 			dataType: 'json',
 			type: 'post',
@@ -30,7 +30,7 @@ class ContatoService
 		console.log(contato);
 
 		$.ajax({
-			url:"http://jrodontologia.com/jrodon-rest/contato/add/",
+			url:"http://jrodontologia.com/jrodon-rest/contato/mensagem/add/",
 			contentType: 'application/json',
 			dataType: 'json',
 			type: 'post',

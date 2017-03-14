@@ -9,6 +9,7 @@ class ContatoController
 		this._inputNome = $('#nome');
 		this._inputAssunto = $('#assunto');
 		this._inputEmail = $('#email');
+		this._inputTel = $('#telefone');
 		this._inputMensagem = $('#message2');	
 
 		this._alertDanger = $('.alert-danger');
@@ -31,6 +32,7 @@ class ContatoController
 		this._contato.assunto = $('#assunto').val();
 		this._contato.email = $('#email').val();
 		this._contato.mensagem = $('#message2').val();
+		this._contato.tel = $('#telefone').val();
 
 		console.log(this._contato);
 
@@ -56,6 +58,7 @@ class ContatoController
 		$('#nome').val('');
 		$('#assunto').val('');
 		$('#email').val('');
+		$('#telefone').val('');
 		$('#message2').val('');
 	}
 }
