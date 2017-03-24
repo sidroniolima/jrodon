@@ -433,7 +433,7 @@
 </div><!--end mainWrap-->
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -441,50 +441,49 @@
         
         <h4 class="modal-title" id="myModalLabel">Agende uma avaliação</h4>
       </div>
-      <div class="modal-body">
-        <p>Preencha os dados solicitando uma avaliação e retornaremos o contato agendando sua visita!</p>
+      
+      <form method="post" id="form" class="form">
+        <div class="modal-body">
+          <p>Preencha os dados solicitando uma avaliação e retornaremos o contato agendando sua visita!</p>
 
-        <form method="post" id="form" class="form">
+            <div id="contact-container" class="margin-t clearfix">
 
-          <div id="contact-container" class="margin-t clearfix">
+              <div align="center">
+                <div class="alert texto-alerta" align="center"></div>
+                <img src="images/spinner.gif" alt="Spinner" id="spinner">
+              </div>
 
-          <div align="center">
-            <div class="alert texto-alerta" align="center"></div>
-            <img src="images/spinner.gif" alt="Spinner" id="spinner">
-          </div>
+              <div class="form-group">
+                  <input type="text" name="nome" id="nome" class="comm-field"  value="Nome" size="22" tabindex="1" aria-required='true' onFocus="if(this.value=='Nome')this.value='';" onBlur="if(this.value=='')this.value='Nome';" />
+                      
+                <input type="email" name="email" id="email" class="comm-field" value="Email" size="22" tabindex="2" aria-required='true' onFocus="if(this.value=='Email')this.value='';" onBlur="if(this.value=='')this.value='Email';"  />
 
-          <input type="text" name="nome" id="nome" class="comm-field"  value="Nome" size="22" tabindex="1" aria-required='true' onFocus="if(this.value=='Nome')this.value='';" onBlur="if(this.value=='')this.value='Nome';" />
+                <input type="text" name="telefone" id="telefone" class="comm-field" value="Telefone" size="22" tabindex="3" aria-required='true' onFocus="if(this.value=='Telefone com ddd')this.value='';" onBlur="if(this.value=='')this.value='Telefone com ddd';"  />
+              </div>
                 
-          <input type="email" name="email" id="email" class="comm-field" value="Email" size="22" tabindex="2" aria-required='true' onFocus="if(this.value=='Email')this.value='';" onBlur="if(this.value=='')this.value='Email';"  />
+              <label>Selecione uma opção para a avaliação</label>
+              <select class="comm-field" value="Reclamacao" width="22" tabindex="4"  aria-required='true' id="reclamacao">
+                <option value="Estou sentindo dor de dente">Estou sentindo dor de dente</option>
+                <option value="Quero avaliar minha saúde bucal">Quero avaliar minha saúde bucal</option>
+                <option value="Quero conversar sobre estética">Quero conversar sobre estética</option>
+                <option value="Outros assuntos">Outros assuntos</option>
+              </select>        
 
-          <input type="telefone" name="telefone" id="telefone" class="comm-field" value="Telefone" size="22" tabindex="3" aria-required='true' onFocus="if(this.value=='Telefone com ddd')this.value='';" onBlur="if(this.value=='')this.value='Telefone com ddd';"  />
-            
-          <label>Selecione uma opção para a avaliação</label>
-          <div class="form-group">
-          <select class="comm-field" value="Reclamacao" width="22" tabindex="4"  aria-required='true' id="reclamacao">
-            <option value="Estou sentindo dor de dente">Estou sentindo dor de dente</option>
-            <option value="Quero avaliar minha saúde bucal">Quero avaliar minha saúde bucal</option>
-            <option value="Quero conversar sobre estética">Quero conversar sobre estética</option>
-            <option value="Outros assuntos">Outros assuntos</option>
-          </select>        
-          </div>
+              <label>Selecione uma opção para a avaliação</label>          
+              <select class="comm-field" value="melhor-horario" width="22" tabindex="5" aria-required='true' id="melhor-horario">
+                <option value="Manhã">Manhã</option>
+                <option value="Tarde">Tarde</option>
+                <option value="Noite">Noite</option>
+              </select>     
 
-          <div class="form-group">
-            <label>Selecione uma opção para a avaliação</label>          
-            <select class="comm-field" value="melhor-horario" width="22" tabindex="5" aria-required='true' id="melhor-horario">
-              <option value="Manhã">Manhã</option>
-              <option value="Tarde">Tarde</option>
-              <option value="Noite">Noite</option>
-            </select>                        
-          </div>
-
+            </div>
         </div> 
-  
-        </div>
+
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+          <button id="dismiss" type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
           <input type="submit" class="btn btn-default" value="Enviar"></button>
         </div>
+      
       </form>               
     
     </div>
@@ -499,7 +498,9 @@
 <script src="js/app/controllers/AvaliacaoController.js" type="text/javascript"></script>
 
 <script>
-  let avaliacaoController = new AvaliacaoController();
+  let avaliacaoController = new AvaliacaoController();  
+  $('#myModal').modal('show');
+  $('#myModal').modal('hide');
 </script>
 
 </body>

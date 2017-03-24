@@ -1,12 +1,13 @@
 class ContatoService
 {
 
+	/*
 	envia(contato, callbackFunction)
 	{
 		console.log(JSON.stringify(contato));
 
 		$.ajax({				 
-			url:"http://jrodontologia.com/jrodon-rest/contato/mensagem/envia/",
+			url:"http://jrodontologia.com/jrodon-rest/contato/mensagem/add/",
 			contentType: 'application/json',
 			dataType: 'json',
 			type: 'post',
@@ -23,6 +24,7 @@ class ContatoService
 			}
 			});
 	}
+	*/
 
 	enviaJQuery(contato, callbackFunction)
 	{
@@ -30,7 +32,7 @@ class ContatoService
 		console.log(contato);
 
 		$.ajax({
-			url:"http://localhost:8080/jrodon-rest/contato/mensagem/envia/",
+			url:"http://jrodontologia.com/jrodon-rest/contato/mensagem/envia/",
 			contentType: 'application/json',
 			dataType: 'json',
 			type: 'post',
