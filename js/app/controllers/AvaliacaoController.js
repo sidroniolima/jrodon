@@ -1,4 +1,4 @@
-class ContatoController
+class AvaliacaoController 
 {
 
 	constructor()
@@ -9,16 +9,18 @@ class ContatoController
 			{	to: '', 
 				from: '', 
 				nome: '', 
-				assunto: '', 
+				assunto: 'Marcação de avaliação', 
 				telefone: '', 
 				email: '', 
-				mensagem: ''};
-
+				mensagem: ''
+			};
+		
 		this._inputNome = $('#nome');
-		this._inputAssunto = $('#assunto');
 		this._inputEmail = $('#email');
 		this._inputTel = $('#telefone');
-		this._inputMensagem = $('#message2');	
+
+		this._inputReclamacao = $('#reclamacao');
+		this._inputHorario = $('#melhor-horario');
 
 		this._alertDanger = $('.alert-danger');
 		this._alertSuccess = $('.alert-success');
@@ -27,24 +29,26 @@ class ContatoController
 
 		$("form").submit(function(event) {
 			event.preventDefault();
-			_self.enviaContato();
+			_self.marcaAvalicao();
 		});	
 	}
 
-	enviaContato()
-	{		
+	marcaAvalicao()
+	{
+		
 		console.log('Enviando...');
+		
 		this._contato.to = 'jrodontologia@jrodontologia.com';
 		this._contato.from = 'mail@tetrati.com.br';
 		this._contato.nome = $('#nome').val();
-		this._contato.assunto = $('#assunto').val();
-		this._contato.email = $('#email').val();
-		this._contato.mensagem = $('#message2').val();
+		this._contato.email = $('#email').val();		
 		this._contato.telefone = $('#telefone').val();
+		this._contato.mensagem = $('#reclamacao').val() + '\n' + 
+			'Melhor horário: ' + $('#melhor-horario').val();
 
 		console.log(this._contato);
 
-		this._service.enviaJQuery(this._contato, this._exibeMensagem.bind(this));		
+		this._service.enviaJQuery(this._contato, this._exibeMensagem.bind(this));
 	}
 
 	_exibeMensagem(resposta)
@@ -57,15 +61,17 @@ class ContatoController
 
 		} else{
 			$('.texto-alerta').text('Contato enviado com sucesso. Em breve o respoderemos.').toggleClass('alert-success').toggle();
+			
+			setInterval(
+				function() {
+					$('#myModal').modal('hide');}, 2000);
 		}
 	}
 
 	_limpaForm()
 	{
 		$('#nome').val('');
-		$('#assunto').val('');
 		$('#email').val('');
 		$('#telefone').val('');
-		$('#message2').val('');
-	}
+	}	
 }

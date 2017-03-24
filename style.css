@@ -626,6 +626,16 @@ width:100%;
 -webkit-border-radius:0;
 border-radius:0; 
 }
+
+select.comm-field{margin-bottom:22px;
+height:35px;
+padding:7px 5px;
+width:100%;
+-webkit-border-radius:0;
+border-radius:0;
+color:gray;
+}
+
 #message2, #comment { width: 100%;
 padding:5px;
 -webkit-border-radius:0;
