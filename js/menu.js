@@ -1,7 +1,7 @@
 $(document).ready(function() {
 				
 navigation = $('#nav-desktop').children('ul');
-options = '<option value="" selected>-Main Menu-</option>';
+options = '<option value="" selected>-Menu principal-</option>';
 
 navigation.find('li').each(function() {
 		
