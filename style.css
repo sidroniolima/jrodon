@@ -765,3 +765,7 @@ ul.check-list li
  display: none;
 }
 
+.check-list li
+{
+  padding: 10px; 10px;
+}
